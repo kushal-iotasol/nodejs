@@ -10,19 +10,97 @@ This document is curarted to introduce you to the world of Node.js. Make you com
 
 - Use proper naming convention for variables. Use variable name which make sense as per the logic you are builing.
 
+```js
+  // bad
+  const something = amount+ tax - promo
+
+  // good 
+  const finalAmount = amount+ tax - promo
+
+```
+ > use names that can describe what the variable is holding so other dev don't have to look to the defination 
+
 - Use comments at all required places.
+
+
+> Use Comments for the function that holding the complex logic 
 
 - Save all assignments in different files and keep the proper name of the files.
 
+```js
+ Make the folder according to the following structure 
+   > Projects
+    > Ecommerce
+    > Landing Page
+```
+
 - Organise the assignments in folders.
+
+ 
+   >   Organize the folder as per the technology you are learning so if you have to revise you can find the suff easily
+
 
 - Try to use the minimum number of lines to produce the desired output.
 
+```js
+  // Use es6 syntax for to shorten your code 
+  
+  const getUserFullName = (user)=>{
+     return user.firstName + user.lastName
+  }
+
+  const userFullName = getUserFullName(user)
+
+  // THe above can be written in single line so don't create unnecesary functions 
+
+  const userFullName = user ? user.firstName + user.lastName : "someUser"
+```
+
 - Find and try to make your programs more efficient and use minimum number of variables and constructs.
+
+```js
+  // suppose  we have an array of students and we want to pick all the passed students
+
+  const students = [];
+
+  
+  const passedStudents = [];
+  
+  
+  for(let i=0;i< sudents.length;i++) {
+    if(students[i].isPass) {
+      passesStudents.push(students[i]);
+    }
+  }
+
+
+  // the above can be shorten using array filter method and in single line
+
+  const passesStudents = students.filter((v)=> v.isPass);
+```
 
 - Try to reduce the complexity of the programs by reducing usage of loops and conditions.
 
+> same Example as above 
+
 - Try to write modular code and create function of reusable code.
+
+```js
+
+  // capital first workd
+  function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Function to reverse a string
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+
+// now when you have to reverse the word for capitalize first letter you don't have to write the whole logic you can use this functions anywhere within your code base
+
+```
 
 - Don’t take help of internet for finding the solution online. You can take help of internet to learn and understand the concepts but again not for find the solutions.
 
@@ -37,14 +115,19 @@ This document is curarted to introduce you to the world of Node.js. Make you com
 <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX17886583.jpg" />
 
 1. What is Nodejs?
+(https://www.w3schools.com/nodejs/nodejs_intro.asp)
 
 2. How does NodeJS Works?
+(https://www.geeksforgeeks.org/how-node-js-works-behind-the-scene/)
 
 3. Difference between NodeJS and the JavaScript?
 
 4. What are the modules in the NodeJS? (Just read about the basic introduction of the modules and go through the file module)
+(https://www.geeksforgeeks.org/what-are-modules-in-node-js/)
+(https://www.w3schools.com/nodejs/ref_modules.asp)
 
 5. Why require syntax is used for the NodeJS?
+(https://medium.com/free-code-camp/require-module-in-node-js-everything-about-module-require-ccccd3ad383)
 
 6. How to run the nodejs Code?
 
@@ -65,6 +148,9 @@ This document is curarted to introduce you to the world of Node.js. Make you com
 2. What is expressjs (Recomended Source - https://expressjs.com/)
 
 3. What is request and response object in expressjs
+(https://developer.mozilla.org/en-US/docs/Web/API/Response)
+(https://developer.mozilla.org/en-US/docs/Web/API/Request)
+
 
 4. What are the status code and when to send which status code  ( Recomended Source - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
@@ -101,16 +187,20 @@ This document is curarted to introduce you to the world of Node.js. Make you com
 Read about what is database, what are the different types of databases available in the market, read about sql and nosql databses what the pros and cons of each.
 
 1. What is Mongoose? What is collection and documents in the mongo dB?
+(https://monib-bormon.medium.com/what-is-mongoose-c1bc3031cc08)
 
 2. How mongo dB is different from SQL?
+(https://www.educba.com/mongodb-vs-sql-server/)
 
 3. What are ORMS?
+(https://www.linkedin.com/pulse/orms-what-should-you-use-them-tim-simms)
 
 4. Install Mongo dB and mongo compass on your local system?
 
 5. What are schemas?
 
 6. What is MVC Approach?
+(https://towardsdatascience.com/everything-you-need-to-know-about-mvc-architecture-3c827930b4c1)
 
 7. What are templating engines?
 
@@ -219,7 +309,8 @@ You have to make the routes acc to the below requirement, make sure your are usi
 
    - Example response :
 
-   ```json
+   ```js
+
    {
     paidStudent :101
     unPaidStudent:67
@@ -230,7 +321,7 @@ You have to make the routes acc to the below requirement, make sure your are usi
 
    - example response
 
-```json filename="index.js"
+```json
 [
   {
     "subject": "Hindi",
@@ -347,7 +438,7 @@ Make the below routes
 
 Schemas:
 
-```
+```ts
     interface Employee{
         userId:string;
         name: string;
@@ -361,7 +452,7 @@ Schemas:
     }
 ```
 
-```
+```ts
     interface Trainee {
         userId:string;
         name:string;
@@ -373,7 +464,7 @@ Schemas:
     }
 ```
 
-```
+```ts
     interface User {
         email:string;
         passoword:string;
@@ -381,7 +472,7 @@ Schemas:
     }
 ```
 
-```
+```ts
     interface Project {
         name: string;
         assignedTo:string // employeeid
@@ -409,7 +500,7 @@ Make the routes for the following requiements, please make sure that you are fol
 
   -- Example Resoponse:
 
-  ```
+  ```ts
   [{
    state:"punjab",
    count: 3
@@ -423,7 +514,7 @@ Make the routes for the following requiements, please make sure that you are fol
 
   -- Example Response
 
-```
+```ts
 [{range:1000-2000 , totalEmployee: 5}, {range: 2000-3000, totalEmployee:6}]
 ```
 
